@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+      z-index: 1030;
+  }
+  
+  .hero-section {
+      background-image: url('https://institutolegado.org/wp/wp-content/uploads/2018/03/together-2450095_1920-e1522253820384.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .hero-section .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 150px 0;
+  }
+  
+  .hero-section .overlay h1,
+  .hero-section .overlay p {
+      color: #fff;
+  }
+  
+  .hero-section .overlay .btn {
+      margin-top: 20px;
+  }
+  
+  .about-us {
+      padding: 50px 0;
+  }
+  
+  .about-us h2 {
+      margin-bottom: 30px;
+  }
+  
+  .about-us p {
+      font-size: 18px;
+      line-height: 1.6;
+  }
+  
+  .about-us .btn {
+      margin-top: 20px;
+  }
+  
+  .about-us img {
+      max-width: 100%;
+      border-radius: 5px;
+  }
+  
+  .services-section {
+      padding: 50px 0;
+      background-color: #f8f9fa;
+  }
+  
+  .services-section h2 {
+      margin-bottom: 40px;
+  }
+  
+  .services-section .col-md-4 {
+      margin-bottom: 30px;
+  }
+  
+  .services-section img {
+      width: 80px;
+      margin-bottom: 20px;
+  }
+  
+  .services-section h5 {
+      margin-bottom: 15px;
+  }
+  
+  .featured-projects {
+      padding: 50px 0;
+  }
+  
+  .featured-projects h2 {
+      margin-bottom: 40px;
+  }
+  
+  .featured-projects .card {
+      border: none;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .featured-projects .card-img-top {
+      height: 200px;
+      object-fit: cover;
+  }
+  
+  .featured-projects .card-title {
+      margin-bottom: 15px;
+  }
+  
+  .testimonials {
+      padding: 50px 0;
+      background-color: #f8f9fa;
+  }
+  
+  .testimonials h2 {
+      margin-bottom: 40px;
+  }
+  
+  .testimonials .testimonial {
+      margin-bottom: 30px;
+  }
+  
+  .testimonials img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+  }
+  
+  .call-to-action {
+      padding: 50px 0;
+      background-color: #007bff;
+      color: #fff;
+  }
+  
+  .call-to-action h2 {
+      margin-bottom: 20px;
+  }
+  
+  .call-to-action .btn {
+      margin: 10px;
+  }
+  
+  @media (max-width: 768px) {
+      .hero-section .overlay {
+          padding: 100px 0;
+      }
+  
+      .about-us .col-md-6 {
+          margin-bottom: 30px;
+      }
+  
+      .services-section .col-md-4 {
+          margin-bottom: 30px;
+      }
+  
+      .featured-projects .col-md-4 {
+          margin-bottom: 30px;
+      }
+  
+      .testimonials .col-md-4 {
+          margin-bottom: 30px;
+      }
+  }
+  </style>
+
+<section class="hero-section" style="background-image: url('https://institutolegado.org/wp/wp-content/uploads/2018/03/together-2450095_1920-e1522253820384.jpg'); background-size: cover; background-position: center; margin: 0; padding: 0;">
+  <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); padding: 150px 0;">
+      <div class="container-fluid text-center text-white">
+          <h1 class="display-3">Bem-vindo, {{ user.username }}!</h1>
+          <p class="lead">Conecte-se com ONGs e contribua para um futuro melhor com a <strong>Conexão Solidária</strong>.</p>
+          <a href="#" class="btn btn-primary btn-lg mt-4">Junte-se Agora</a>
+      </div>
+  </div>
+</section>
+
+<section class="about-us py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Quem Somos</h2>
+                <p>Somos uma plataforma dedicada a conectar voluntários com ONGs, facilitando a participação em projetos que impactam positivamente a sociedade.</p>
+                <p>Nossa missão é promover a solidariedade e incentivar ações que transformam comunidades.</p>
+                <a href="#" class="btn btn-outline-primary mt-3">Saiba Mais</a>
+            </div>
+            <div class="col-md-6">
+                <img src="https://classic.exame.com/wp-content/uploads/2021/07/GettyImages-1305990827.jpg" alt="Sobre Nós" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <h2 class="col-12 mb-4">O que Oferecemos</h2>
+            <div class="col-md-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Conexão com ONGs" class="mb-3" style="width: 80px;">
+                <h5>Conexão com ONGs</h5>
+                <p>Encontre organizações que precisam das suas habilidades e faça a diferença.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3198/3198502.png" alt="Oportunidades de Voluntariado" class="mb-3" style="width: 80px;">
+                <h5>Oportunidades de Voluntariado</h5>
+                <p>Descubra projetos alinhados aos seus interesses e competências.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3872/3872991.png" alt="Impacto Social" class="mb-3" style="width: 80px;">
+                <h5>Impacto Social</h5>
+                <p>Acompanhe como suas ações estão transformando vidas e comunidades.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-projects py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Projetos em Destaque</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="https://classic.exame.com/wp-content/uploads/2021/07/GettyImages-1305990827.jpg" class="card-img-top" alt="Projeto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Educação para Todos</h5>
+                        <p class="card-text">Contribua para a educação de crianças em áreas carentes.</p>
+                        <a href="#" class="btn btn-primary">Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="https://classic.exame.com/wp-content/uploads/2021/07/GettyImages-1305990827.jpg" class="card-img-top" alt="Projeto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Saúde e Bem-Estar</h5>
+                        <p class="card-text">Ajude em campanhas de saúde e prevenção em comunidades.</p>
+                        <a href="#" class="btn btn-primary">Participar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="https://classic.exame.com/wp-content/uploads/2021/07/GettyImages-1305990827.jpg" class="card-img-top" alt="Projeto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Proteção Ambiental</h5>
+                        <p class="card-text">Engaje-se em iniciativas que cuidam do meio ambiente.</p>
+                        <a href="#" class="btn btn-primary">Participar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">O que dizem sobre nós</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial text-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Depoimento 1" class="rounded-circle mb-3" style="width: 100px;">
+                    <p>"Participar da Conexão Solidária me permitiu impactar positivamente minha comunidade."</p>
+                    <h5>João Silva</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial text-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Depoimento 2" class="rounded-circle mb-3" style="width: 100px;">
+                    <p>"Encontrei voluntários dedicados que ajudaram nossa ONG a crescer."</p>
+                    <h5>Maria Oliveira</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial text-center">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Depoimento 3" class="rounded-circle mb-3" style="width: 100px;">
+                    <p>"A plataforma facilitou meu engajamento em projetos significativos."</p>
+                    <h5>Carlos Souza</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="call-to-action py-5" style="background-color: #007bff; color: #fff;">
+    <div class="container text-center">
+        <h2>Pronto para fazer a diferença?</h2>
+        <p class="lead">Cadastre-se agora e faça parte da nossa rede solidária.</p>
+        <a href="#" class="btn btn-light btn-lg mx-2">Quero ser Voluntário</a>
+        <a href="#" class="btn btn-outline-light btn-lg mx-2">Cadastre sua ONG</a>
+    </div>
+</section>
+
+{% endblock %}

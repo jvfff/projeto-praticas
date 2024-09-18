@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .register-container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        padding: 12px;
+        margin-top: 20px;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    label {
+        font-size: 14px;
+        color: #495057;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+
+    .container {
+        max-width: 600px;
+    }
+
+</style>
+
+<div class="container register-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Cadastre-se</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Nome de usuário</label>
+                            {{ form.username.errors }}
+                            <input type="text" name="{{ form.username.name }}" id="id_username" class="form-control" placeholder="Digite seu nome de usuário" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            {{ form.email.errors }}
+                            <input type="email" name="{{ form.email.name }}" id="id_email" class="form-control" placeholder="Digite seu email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password1" class="form-label">Senha</label>
+                            {{ form.password1.errors }}
+                            <input type="password" name="{{ form.password1.name }}" id="id_password1" class="form-control" placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password2" class="form-label">Confirme a Senha</label>
+                            {{ form.password2.errors }}
+                            <input type="password" name="{{ form.password2.name }}" id="id_password2" class="form-control" placeholder="Confirme sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
