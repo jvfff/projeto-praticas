@@ -26,6 +26,23 @@
         border-radius: 5px;
         padding: 10px;
         font-size: 16px;
+        width: 100%;
+    }
+
+    .password-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .password-container input {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .toggle-password {
+        cursor: pointer;
+        color: #007bff;
+        font-size: 20px;
     }
 
     .btn-primary {
@@ -87,7 +104,12 @@
                         <div class="mb-3">
                             <label for="id_password" class="form-label">Senha</label>
                             {{ form.password.errors }}
-                            <input type="password" name="{{ form.password.name }}" id="id_password" class="form-control" placeholder="Digite sua senha" required>
+                            <div class="password-container">
+                                <input type="password" name="{{ form.password.name }}" id="id_password" class="form-control" placeholder="Digite sua senha" required>
+                                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                                    👁️
+                                </span>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Entrar</button>
                         <div class="forgot-password">
@@ -102,5 +124,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('id_password');
+        const toggleIcon = document.querySelector('.toggle-password');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.textContent = '🙈';  
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.textContent = '👁️';  
+        }
+    }
+</script>
 
 {% endblock %}

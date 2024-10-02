@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import ONGProfile, VolunteerProfile
 
-# Register your models here.
+admin.site.register(ONGProfile)
+admin.site.register(VolunteerProfile)

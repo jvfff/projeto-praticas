@@ -17,6 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 LOGIN_URL = 'login' 
 LOGIN_REDIRECT_URL = 'index'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -27,7 +28,6 @@ SECRET_KEY = 'django-insecure--nkmvp^u!ppooi6$-$+g*tpw+*y(22rp#7x93^^_ew@0&%x6re
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -86,7 +86,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -117,7 +116,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+import os
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
